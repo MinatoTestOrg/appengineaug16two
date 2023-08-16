@@ -1,0 +1,3 @@
+com.minatogithuborganization.appengine.config.ApplicationRepositoriesAutoConfiguration
+com.minatogithuborganization.appengine.config.ApplicationTransactionManagersAutoConfig
+com.minatogithuborganization.appengine.config.ApplicationProvidersAutoConfiguration

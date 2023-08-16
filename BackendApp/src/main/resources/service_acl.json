@@ -1,0 +1,186 @@
+{
+  "workflowhistory": {
+    "post": {
+      "/{workflowType}/{modelid}/datatable": [
+        "PermitAll"
+      ]
+    }
+  },
+  "rappitjitgrouprolemapping": {
+    "post": {
+      "/datatable": [
+        "Development Administrator"
+      ],
+      "/": [
+        "Development Administrator"
+      ]
+    },
+    "put": {
+      "/": [
+        "Development Administrator"
+      ]
+    },
+    "delete": {
+      "/{ids}": [
+        "Development Administrator"
+      ]
+    }
+  },
+  "attachments": {
+    "post": {
+      "/link": [
+        "PermitAll"
+      ],
+      "/upload": [
+        "PermitAll"
+      ]
+    },
+    "get": {
+      "/download/attachment/{attachment_id}": [
+        "PermitAll"
+      ],
+      "/download/inline/{attachment_id}": [
+        "PermitAll"
+      ],
+      "/all/{modelKey}": [
+        "PermitAll"
+      ]
+    },
+    "delete": {
+      "/{ids}}": [
+        "PermitAll"
+      ]
+    }
+  },
+  "environmentinfo": {
+    "get": {
+      "/": [
+        "PermitAll"
+      ]
+    }
+  },
+  "workflowconfig": {
+    "get": {
+      "/getconfig/{workflowType}": [
+        "PermitAll"
+      ]
+    }
+  },
+  "table123s": {
+    "post": {
+      "/datatable": [
+        "App Admin",
+        "Development Administrator"
+      ],
+      "/": [
+        "App Admin",
+        "Development Administrator"
+      ]
+    },
+    "get": {
+      "/{sid}": [
+        "App Admin",
+        "Development Administrator"
+      ],
+      "/autosuggest": [
+        "App Admin",
+        "Development Administrator"
+      ]
+    },
+    "put": {
+      "/": [
+        "App Admin",
+        "Development Administrator"
+      ]
+    },
+    "delete": {
+      "/{ids}": [
+        "App Admin",
+        "Development Administrator"
+      ],
+      "/{id}/delete/{ids}": [
+        "App Admin",
+        "Development Administrator"
+      ]
+    }
+  },
+  "changelogs": {
+    "post": {
+      "/datatable/{entityName}/{entityId}/{fieldName}/{fromModifiedDate}": [
+        "PermitAll"
+      ]
+    }
+  },
+  "applicationusers": {
+    "post": {
+      "/datatable": [
+        "App Admin",
+        "Development Administrator"
+      ],
+      "/": [
+        "App Admin",
+        "Development Administrator"
+      ]
+    },
+    "get": {
+      "/user-details": [
+        "PermitAll"
+      ],
+      "/{sid}": [
+        "App Admin",
+        "Development Administrator"
+      ],
+      "/autosuggest": [
+        "App Admin",
+        "Development Administrator"
+      ]
+    },
+    "put": {
+      "/": [
+        "App Admin",
+        "Development Administrator"
+      ]
+    },
+    "delete": {
+      "/{ids}": [
+        "App Admin",
+        "Development Administrator"
+      ]
+    },
+    "options": {}
+  },
+  "otp": {
+    "post": {
+      "/validateotp/{otp}": [
+        "PermitAll"
+      ],
+      "/generateandsendotp": [
+        "PermitAll"
+      ],
+      "/forgotpasswordotp": [
+        "PermitAll"
+      ]
+    }
+  },
+  "usernotificationsyncinfo": {
+    "put": {
+      "/updatesynctime": [
+        "PermitAll"
+      ]
+    }
+  },
+  "notifications": {
+    "post": {
+      "/notifications/datatable": [
+        "PermitAll"
+      ]
+    }
+  },
+  "deploy": {
+    "post": {
+      "/setup": [
+        "Development Administrator"
+      ]
+    }
+  }
+}

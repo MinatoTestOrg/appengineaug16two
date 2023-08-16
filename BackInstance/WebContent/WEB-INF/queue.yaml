@@ -1,0 +1,17 @@
+queue:
+  - name: retry-search-queue
+    mode: push
+    rate: 1/s
+    target: appengine=back
+  - name: retry-bq-queue
+    mode: push
+    rate: 1/s
+    target: appengine-back
+  - name: retry-post-commit
+    mode: push
+    rate: 1/s
+    target: appengine-back
+  - name: default
+    mode: push
+    rate: 1/s
+    target: appengine-back

@@ -1,0 +1,54 @@
+name: prod-build
+description: prod-build action for the pipeline
+
+inputs:
+  SERVICE_ACCOUNT_KEYFILE_JSON:
+    description: prod env's service account keyfile json
+    required: true
+
+  ARTIFACTORY_USER:
+    description: App's Artifactory user name
+    required: true
+  
+  ARTIFACTORY_PASS:
+    description: App's Artifactory passcode
+    required: true
+
+  CLIENT_ID:
+    description: prod env's Cliend ID
+    required: true
+
+  CLIENT_SECRET:
+    description: prod env's Client Secret
+    required: true
+
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Setting up environment for build...
+    shell: sh
+    run: |
+      apk add --no-cache git maven bash curl wget
+      apk --no-cache add openjdk17-jdk
+      apk add --no-cache python3 py3-pip
+      curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-425.0.0-linux-x86_64.tar.gz > /tmp/google-cloud-cli.tar.gz
+      mkdir -p /usr/local/gcloud
+      tar -xzf /tmp/google-cloud-cli.tar.gz -C /usr/local/gcloud
+      chmod -R 777 /usr/local/gcloud/
+      /usr/local/gcloud/google-cloud-sdk/install.sh --quiet
+      PATH=$PATH:/usr/local/gcloud/google-cloud-sdk/bin
+  
+  - name: Github actions authentication...
+    uses: google-github-actions/auth@v1
+    with:
+      credentials_json: ${{inputs.SERVICE_ACCOUNT_KEYFILE_JSON}}
+
+  - name: Building project...
+    shell: sh
+    run: |
+      sed -i 's/${env.ARTIFACTORY_USER}/${{inputs.ARTIFACTORY_USER}}/' .m2/settings.xml
+      sed -i 's/${env.ARTIFACTORY_PASS}/${{inputs.env.ARTIFACTORY_PASS}}/' .m2/settings.xml
+      npm install -g @angular/cli
+      mvn -s .m2/settings.xml --batch-mode clean install -Dclient-id=${{inputs.CLIENT_ID}} -Dclient-secret=${{inputs.CLIENT_SECRET}} -P prod

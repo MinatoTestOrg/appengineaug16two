@@ -1,0 +1,12 @@
+name: prod-deploy
+description: prod-deploy action for the pipeline
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Deploying...
+    shell: sh
+    run: |
+      cd BackendApp
+      mvn -s .m2/settings.xml --batch-mode appengine:deployAll -P prod

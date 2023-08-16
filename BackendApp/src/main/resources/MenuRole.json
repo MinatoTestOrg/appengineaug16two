@@ -1,0 +1,44 @@
+{
+  "left" : [ {
+    "pathsInvolved" : [ ],
+    "accessControl" : [ "all", "Development Administrator" ],
+    "label" : "MENU",
+    "element" : "menuItem"
+  }, {
+    "pathsInvolved" : [ "/applicationuser/applicationuserdetail", "/applicationuser/applicationuserlist" ],
+    "accessControl" : [ "all", "Development Administrator" ],
+    "onClick" : "navigate_to_page",
+    "label" : "APPLICATION_USER",
+    "page" : {
+      "name" : "Application Users",
+      "sid" : "6e756384-80eb-4a3d-8b7d-185f02f528cb",
+      "url" : "/applicationuser/applicationuserlist"
+    },
+    "element" : "menuItem"
+  }, {
+    "pathsInvolved" : [ "/table123/table123detail", "/table123/table123list", "/table123/table123detail" ],
+    "accessControl" : [ "all", "Development Administrator" ],
+    "onClick" : "navigate_to_page",
+    "valueChange" : true,
+    "currentNode" : "2e55026a-44e9-4572-aba8-c6fe70059a89",
+    "label" : "TABLE123",
+    "page" : {
+      "name" : "table123 List",
+      "sid" : "57f9d17f-d0c4-43fe-b801-961074e2d99f",
+      "url" : "/table123/table123list"
+    },
+    "element" : "menuItem"
+  } ],
+  "topBarLeft" : [ ],
+  "topBarMiddle" : [ ],
+  "topBarRight" : [ {
+    "pathsInvolved" : [ ],
+    "languages" : [ {
+      "code" : "en",
+      "name" : "English"
+    } ],
+    "element" : "language"
+  } ],
+  "right" : [ ],
+  "tabs" : [ ]
+}
